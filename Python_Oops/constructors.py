@@ -31,8 +31,8 @@ class Animal:
 # this object is created keeping first constructor in mind
 # that's why only two attributes(name='dog' and species='mammalas') have been passed while making object
 
-dog = Animal("dog","mammalas") 
-print(dog) 
+#dog = Animal("dog","mammalas") 
+#print(dog) 
 
 """
 Traceback (most recent call last):
@@ -47,7 +47,23 @@ that class 'Animal' is considering the second constructor and thats why it's ask
 third argument/attribute which is 'age' which is defined in second constructor. It means second 
 constructor is overriding the first constructor.
 """
- 
-
+# creating object of Animal class keeping second constructor in mind and passing three attributes 
+# while making object
+dog2 = Animal("dog","mammalas",20)
+print(dog2)
+sound = dog2.make_sound("woof woof")
+print(sound) 
+"""
+Output :-->>
+PS C:\Users\ckp43_000\python_programming\python_programming\Python_Oops> & C:/Anaconda3/envs/new_pychrm/python.exe c:/Users/ckp43_000/python_programming/python_programming/Python_Oops/constructors.py
+<__main__.Animal object at 0x0000006122C312C8>
+The animal is dog and it makes sound woof woof
+"""
+"""
+Explanation :--->>>
+creating object of Animal class keeping second constructor in mind 
+and that's why passing total three attributes(name,species,age) while making object
+and we got the output as expecteed, it means class Animal is considering 
+the second constructor as final constructor"""
 
 
