@@ -28,8 +28,8 @@ class Animal:
         return "The animal is {} and it makes sound {}".format(self.name,sound)       
 
 # creating an object of Animal class:
-#this object is created keeping first constructor in mind
-# that's why only two attributes have been passed while making object
+# this object is created keeping first constructor in mind
+# that's why only two attributes(name='dog' and species='mammalas') have been passed while making object
 
 dog = Animal("dog","mammalas") 
 print(dog) 
@@ -40,9 +40,14 @@ Traceback (most recent call last):
     dog = Animal("dog","mammalas")
 TypeError: __init__() missing 1 required positional argument: 'age'
 """
-# when we execute line number 35 , we get above error message 
-# which indicates that class 'Animal' is considering the second constructor and thats 
-# why it's asking for third argument/attribute which is 'age' which is defined in second constructor.
+"""
+Explanation:-->>>
+when we execute this program(line number 35) , we get above error message which indicates 
+that class 'Animal' is considering the second constructor and thats why it's asking for 
+third argument/attribute which is 'age' which is defined in second constructor. It means second 
+constructor is overriding the first constructor.
+"""
+ 
 
 
 
