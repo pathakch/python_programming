@@ -46,6 +46,5 @@ car1.self_driving1() # here no need to pass anything while calling the car1 obje
                     #from earlier assigned value due to 'self'
 
 car1.self_driving2('electric') # here we are passing one more parameter cause we have used 
-                                # extra parameter in  method 'self_driving2'
-
+                                # extra parameter in  method 'self_driving2'x
         
