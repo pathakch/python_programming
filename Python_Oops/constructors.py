@@ -101,7 +101,7 @@ print("name of animal is :",dog4.name,"\nAnd species of animal is :",dog4.specie
 """
 Output : -->>
 PS C:\Users\ckp43_000\python_programming\python_programming\Python_Oops> & C:/Anaconda3/envs/new_pychrm/python.exe c:/Users/ckp43_000/python_programming/python_programming/Python_Oops/t.py
-dog
+dog 
 name of animal is : dog
 And species of animal is : mammalas
 
