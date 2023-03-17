@@ -49,4 +49,4 @@ file_handler = logging.FileHandler('file_name')
 file_handler.setFormatter(fmt)
 # adding file handler to the logger 
 logger.addHandler(file_handler)
-# All set now , in place of logging everywhere in our code we need to write 'logger'
+# All set now , in place of logging everywhere in our code we need to write 'logger's
