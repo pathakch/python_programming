@@ -87,7 +87,10 @@ This is a not_self_driving car
 ############################################################################################
 """
 Difference between parent class and child class attributes and method explanined below with output
-Explanation :-->>
+Explanation :-->> Since 'car1' is an object of parent class that's why it has only those class attributes
+(windows,doors and enginetype)and class methods(driving) which have been defined in parent class "Car" 
+And 'audi1' is an object of child class "Audiq7" that's why it has child class attributes(horsepower) 
+and methods(drift) as well as parent class attributes(windows,doors and enginetype) and methods(driving)
 """
 print(dir(car1))
 """

@@ -71,11 +71,17 @@ the second constructor as final constructor
 Regarding above question : if we really want to create multiple constructors in python class
 then there is a method for that , we can use '*args' with 'if/elif/else' condition and pass
 as many attributes as we want while creating object for that class
+=====================================================================================
+Additional Knowledge :-->> argument "*args" :--> when we define this argument in any function
+while creating the function it means while calling the function that function can take as many
+arguments as we pass due to use of '*args' 
+=====================================================================================
 Check below example :-->>>
 ********************************************************************************************
 """
 #creating a new class just to show how to implement multiple constructors in python class
 #Though its not a good practice to create multiple constructors in python class.
+
 class New_Animal:
 
     #creating constructor

@@ -41,10 +41,31 @@ class Car:
         print("The car type is {} engine ".format(engine))        
 
 car1 = Car(4,4,'petrol')      
-print("The number of windows of the Car is : ", car1.darwaja)  
-car1.self_driving1() # here no need to pass anything while calling the car1 object it will take enginetype 
-                    #from earlier assigned value due to 'self'
+print("The number of windows of the Car is : ", car1.darwaja) 
+"""
+output :->>
+The number of windows of the Car is :  4
+"""
 
-car1.self_driving2('electric') # here we are passing one more parameter cause we have used 
-                                # extra parameter in  method 'self_driving2'x
+"""
+while clalling class method 'self_driving1' no need to pass any parameter since we have not 
+defined any additional parameters in this function , And 'self' is written in function argument
+so this function will take the parameter from constructor 
+""" 
+car1.self_driving1()  
+"""
+Output :-->>
+The car type is petrol engine
+"""
+
+"""
+In class method 'self_driving2' one extra argument'engine' is defined other than self
+that's why we need to pass that argument while calling the function that's why 'electric'
+is passed as 'engine'.
+"""
+car1.self_driving2('electric') 
+"""
+Output :-->>
+The car type is electric engine
+"""
         
