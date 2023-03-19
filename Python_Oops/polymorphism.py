@@ -21,12 +21,19 @@ These are the main concepts of polymorphism :-->>
 """
 """
 *************************************** Method Overloading****************************** :
+Method overloading is a means by which you can call the same method in different ways, 
+i.e. with different parameters based on the number of arguments or their different datatypes
+
+There are multiple methods of implementing 'Method overloading' in python
+============================================================
+Method 1 : using 'None' in function argument:-->>> but, this is not the most efficient way of 
+implementing 'Method Overloading' in python.
+
 inside class 'VIP' one function is created with two arguments 'x' and 'y'
 this function will work in all three scenarios defined in 'if/else' condition
-whenever we need to overlaod a function we need to pass this 'None' this is the correct way 
-of method overlaoding.
+Here 'None' is default input means if we do not pass any parameters while calling this function
+'x' and 'y' will take 'None' as input.
 """
-
 class VIP:
     def vsp(self,x=None,y=None):
         if x == None and y == None:
@@ -58,10 +65,77 @@ Output :-->
 Addition of x and y is : 9
 """
 """
-*******************************************************************************************
+****************************************************************
 Explanation : 
 we can see that function 'vsp' is working in all three scenarios 
-and returns output based on the parameters passed
-*******************************************************************************************
+1.scenario: if we do not pass any argument 
+2.scenario: if we pass one argument
+3.scenario: when we pass two arguments
+it returns output based on the parameters passed
+****************************************************************
 """
+#=============================================================
+# Method 2. Using '*args' in arguments while defining the function:-->> Not most efficient method
+class Addition:
+    def add(self,datatype,*args):
+
+        if datatype == 'int':
+            answer = 0
+        elif datatype == 'str':
+            answer = ''
+        for i in (args):
+            answer = answer+i
+        print("sum is : ",answer)
+
+# Creating an object of 'VIP' class.
+obj4 = Addition()
+# calling this function for integer input
+obj4.add('int',2,3,4)
+"""
+Output :-->
+sum is :  9
+"""   
+
+# Calling function 'add' for string inputs
+obj4.add('str','Hello',' ','World','...!!')
+"""
+Output :-->>
+sum is :  Hello World...!!
+"""
+#=================================================================
+"""
+********************************* Most efficient way of method Overloading in python ********************
+
+The most efficient way to overload a method in python is by applying 
+multiple dispatch decorator
+"""  
+#====================================
+from multipledispatch import dispatch
+#====================================
+class Efficient_Add:
+    @dispatch(int,int)
+    def add(self,a,b):
+        print("sum of two integers {},{} is : {}".format(a,b,(a+b)))
+
+    @dispatch(int,int,int)
+    def add(self,a,b,c):
+        print("sum of three integers {},{},{} is : {}".format(a,b,c,a+b+c))   
+
+    @dispatch(str,str)
+    def add(self,a,b):
+        print("concatenation of two strings {},{} is : {}".format(a,b,a+b))
+
+# Creating an object of 'Efficient_Add' class
+obj5 = Efficient_Add()
+
+# Calling function 'add' with two integer inputs
+obj5.add(2,3)     
+
+# Calling function 'add' with three integer inputs
+obj5.add(2,3,4)
+
+# Calling function 'add' with two string inputs
+obj5.add("Hello","World")
+
+
 
