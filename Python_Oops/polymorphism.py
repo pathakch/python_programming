@@ -24,6 +24,15 @@ These are the main concepts of polymorphism :-->>
 Method overloading is a means by which you can call the same method in different ways, 
 i.e. with different parameters based on the number of arguments or their different datatypes
 
+Specifically in python, you cannot perform method overloading. However, there are two means by which you 
+can achieve the same functionality:
+
+1. Optional parameters. When you provide optional parameters, you will have to check in the code 
+and perform the calculations / algorithm accordingly
+
+2. Use the multidispatch module that will help in defining the data types of the parameters, 
+and will allow you to create multiple methods with the same name
+
 There are multiple methods of implementing 'Method overloading' in python
 ============================================================
 Method 1 : using 'None' in function argument:-->>> but, this is not the most efficient way of 
@@ -74,8 +83,10 @@ we can see that function 'vsp' is working in all three scenarios
 it returns output based on the parameters passed
 ****************************************************************
 """
-#=============================================================
-# Method 2. Using '*args' in arguments while defining the function:-->> Not most efficient method
+#==============================================================================================
+"""
+Method 2. Using '*args' in arguments while defining the function:-->> Not most efficient method
+"""
 class Addition:
     def add(self,datatype,*args):
 
@@ -113,29 +124,53 @@ multiple dispatch decorator
 from multipledispatch import dispatch
 #====================================
 class Efficient_Add:
+
     @dispatch(int,int)
-    def add(self,a,b):
+    def magic_methodd(self,a,b):
         print("sum of two integers {},{} is : {}".format(a,b,(a+b)))
 
     @dispatch(int,int,int)
-    def add(self,a,b,c):
-        print("sum of three integers {},{},{} is : {}".format(a,b,c,a+b+c))   
+    def magic_methodd(self,a,b,c):
+        res = a*b*c
+        print("multiplication of three integers {},{},{} is : {}".format(a,b,c,res))   
 
     @dispatch(str,str)
-    def add(self,a,b):
+    def magic_methodd(self,a,b):
         print("concatenation of two strings {},{} is : {}".format(a,b,a+b))
 
 # Creating an object of 'Efficient_Add' class
 obj5 = Efficient_Add()
 
 # Calling function 'add' with two integer inputs
-obj5.add(2,3)     
-
+obj5.magic_methodd(2,3)     
+"""
+Output :-->
+sum of two integers 2,3 is : 5
+"""
 # Calling function 'add' with three integer inputs
-obj5.add(2,3,4)
-
+obj5.magic_methodd(2,3,4)
+"""
+Output :-->
+multiplication of three integers 2,3,4 is : 24
+"""
 # Calling function 'add' with two string inputs
-obj5.add("Hello","World")
+obj5.magic_methodd("Hello","World")
+"""
+Output :-->
+concatenation of two strings Hello,World is : HelloWorld
+"""
+"""
+****************************************************************************************************
+================================ Advantages of Method Overloading ==================================
+****************************************************************************************************
+1. Making more than one method appear as a single method logically
+2. Preserve backward compatibility :--->>>
+   If we have a method, that performs complex calculations we could give it a new requirement so that 
+   it could optionally perform the same complex calculation, but with slight changes. If we add a new 
+   parameter (optional parameter) then the presence of that parameter will be used to perform calculations 
+   in either the old way or the new way.
+3. Method overloading in Python improves the code reusability as well   
+"""
 
 
 
