@@ -34,6 +34,7 @@ class Shape:
     def two_dimensional(self):
         print("I am a parent class method named 'two_dimensional' \n")  
 
+# Creating child class 'Square' (it inherites from 'Shape' class.)
 class Square(Shape):
     data2 = 'xyz'
 
@@ -81,7 +82,7 @@ child_class_obj.no_of_sides()
 Output :-->>
 I am child class method 'no_of_sides' I am overriding the parent class method'no_of_sides'
 
-========== Explanation ============
+============= Explanation ============
 We can see here that parent class method 'no_of_sides' has been overriden in child class 
 means it's been modified inside the child class (in this case unction contains only print statement 
 and that print statement has been changed means modified)
@@ -92,7 +93,7 @@ child_class_obj.two_dimensional()
 Output :-->>
 I am a parent class method named 'two_dimensional'
 
-========== Explanation ============
+============= Explanation ============
 This child class object is accessing parent class's method 'two_dimensional'
 '''
 # calling child class method 'color()' from child class object.
@@ -115,6 +116,92 @@ print("This is child class data which has been initialized in child class : ",ch
 Output :-->
 This is child class data which has been initialized in child class :  xyz
 '''
+#****************************************************************************************************
+#================================= Method Overriding in Multiple Inheritance ========================
+#****************************************************************************************************
+"""
+If the child class provides it's own implementation to the methods/attributes while inheriting them 
+from it's parent/parents then it is known as Overriding in Multiple Inheritance.
+"""
+class Book:
+    def Subjectname(self):
+        print("This is a generic book")
+
+    def intro(self):
+        print("I am from Book class")
+
+class Physics(Book):
+    def Subjectname(self):
+        print("This is a Physics book")
+
+class Chemistry(Book):
+    def Subjectname(self):
+        print("This is a Chemmistry book")  
+
+class Science(Physics,Chemistry):
+    def Subjectname(self):
+        print("The method 'SubjectName' has been overriden in Science class.")
+        
+    def check(self):
+        print("I am from Science class.")  
+
+# Creating an object of 'Science' class.
+obj_science = Science()
+
+# Calling 'Science' class method 'SubjectName' which has been overriden in 'Science' class.
+obj_science.Subjectname()  
+"""
+Output :-->The method 'SubjectName' has been overriden in Science class.
+"""       
+# Calling parent class method 'intro' from child's class object.
+obj_science.intro()
+"""
+Output :->>I am from Book class
+"""
+# Calling child's class method 'check()' from child's class object.
+obj_science.check()   
+"""
+Output :-->>I am from Science class.
+"""  
+#******************************************************************************************************
+#============================ Method Overriding in Multi-level Inheritance ============================
+#******************************************************************************************************
+class GrandFather:
+    def intro(self):
+        print("I am Grand Father.")
+    def age(self):
+        print("I am grandfather so and my age is more than 85 years.")    
+class Father:
+    def age(self):
+        print("I am Father and my age is  50 years.")
+class Child:
+    def intro(self):
+        print("I am a child and this 'intro' method of GrandFather class has been overriden in 'child' class")
+    def age(self):
+        print("I am child and my age is 21 years.")  
+
+# Creating object of 'Child' class
+obj_child = Child()
+
+# Calling 'intro' method of 'Child' class which has been overriden in 'Child' class.
+obj_child.intro()
+"""
+Output :-->>I am a child and this 'intro' method of GrandFather class has been overriden in 'child' class
+"""
+# Calling method 'age' of 'Child' class.
+obj_child.age()
+"""
+Output :-->I am child and my age is 21 years.
+"""
+
+
+
+
+
+
+
+
+
 
 
 
