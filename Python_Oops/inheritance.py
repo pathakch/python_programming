@@ -1,5 +1,7 @@
-
-#*********************************** Inheritance *****************************************#
+ 
+#***********************************  *****************************************
+#=================================== Inheritance ==============================
+#******************************************************************************
 # Creating a class named 'Car' -->> Parent class
 class Car:
 
@@ -13,7 +15,8 @@ class Car:
     # Important to Note : ->> Here passing 'self' parameter(while creating this function) is mendatory 
     # otherwise ,error occurs
     # and 'self' will help to access all the attributes defined in constructor inside this function
-    # like we can access any of the attributes 'windows' or 'doors' or 'enginetype'
+    # like we can access any of the attributes 'windows' or 'doors' or 'enginetype' writting 
+    # 'self.windows' or 'self.doors' or 'self.enginetype'.
     def driving(self,mode):
         print("This is a {} car".format(mode))
 
@@ -50,7 +53,7 @@ enginetype:petrol
 """
 
 # calling parent class method 'driving'
-#car1.driving("self_driving")
+car1.driving("self_driving")
 """
 Output :-->>
 This is a self_driving car
@@ -92,7 +95,7 @@ Explanation :-->> Since 'car1' is an object of parent class that's why it has on
 And 'audi1' is an object of child class "Audiq7" that's why it has child class attributes(horsepower) 
 and methods(drift) as well as parent class attributes(windows,doors and enginetype) and methods(driving)
 """
-print(dir(car1))
+print(dir(car1)) 
 """
 Output :-->>
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', 
@@ -101,7 +104,7 @@ Output :-->>
 '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 
 'doors', 'driving', 'enginetype', 'windows']
 """
-print(dir(audi1))
+print(dir(audi1))    
 """
 Output :-->>
  ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__',
