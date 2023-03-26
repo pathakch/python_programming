@@ -1,6 +1,6 @@
 """
 **************************************************************************************************
-================================== MRO: Method Resolution Order ================================== 
+================================== MRO : Method Resolution Order ================================= 
 **************************************************************************************************
 Method resolution order in Python is the order in which a python program resolves or searches for 
 a class in case of multiple inheritance.
@@ -41,9 +41,9 @@ Output :--> This is class B
 Explanation : While creating class 'D_B_C' we have given B first in order inside paranthesis
 so the 'demo' function is coming from class 'B'
 """
-#============================================================================
+#================================================================================
 # Scenario 2 : 'class D_C_B(C,B)'-->>> first C and then B inside the paranthesis.
-#============================================================================
+#================================================================================
 class D_C_B(C,B):
     def check(self):
         print("This is class D_C_B")
