@@ -1,2 +1,2 @@
 This is the inheritance image.
-[inheritance.drawio.svg]
+![design !](inheritance.drawio.svg "design")
