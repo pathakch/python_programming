@@ -5,7 +5,7 @@ Git and github both are different thing; Github is a git hosting website; where 
 working process for GIT:
 There are three ways to work with git:
 
-    1. creating new local repository and then creating new remote repository and adding local repository to remote repository.
+  1. creating new local repository and then creating new remote repository and adding local repository to remote repository.
 	2. creating new local repository and then adding this local repository to the already existing remote repository.
 	3. pulling code from already existing remote repository
 
@@ -37,9 +37,12 @@ so this command will add the remote repository.
 
 `command : git push origin <branch_name>`
 
-(if our remote repository is public then will not get any error , but, will get error if it's private repository.)
-(when we are creating loacal git repo , may be we have created any feature branch also that's why <branch_name> is given in command
-we can push both 'master' branch or any other 'feature' branch also.)
+>### NOTE :-->> 
+- if our remote repository is public then we will not get any error while pushing our local git repository to remote repository, 
+But, we will get error if our remote repository is private repository.
+To resolve this issue we need to generate a new SSH key in github account setting and run some commands in code console (to configure this key and ssh configure) to provide our computer access of our remote repository.  
+- when we are creating loacal git repo , may be we have created any feature branch also that's why <branch_name> is given in command
+- we can push both 'master' branch or any other 'feature' branch also.
 
 #### important git commands :  
 
@@ -86,4 +89,3 @@ files/*.extension_name inside the gitignore , then git will not track those file
 `git push -d origin branch_name` : deletes branch from remote  repository
 
 `git merge branch_name` : merge other branches with master(give this command when u r on master branch)
- 
