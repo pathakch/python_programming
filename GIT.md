@@ -10,9 +10,9 @@ There are three ways to work with git:
 	3. pulling code from already existing remote repository
 
 	
----------------------------------
+--------------------------------------
 #### creating new local git repository
----------------------------------	
+--------------------------------------	   
 1. install git in local computer
 2. create one new folder anywhere in local computer
 3. open git bash in that folder and initialize that folder as git folder (using command "git init")and 

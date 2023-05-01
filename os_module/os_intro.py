@@ -3,8 +3,8 @@ Project : Requirement :
 There are files with '.txt' and '.docx' extensions inside folder_1 , 
 we have to create two folder inside os_module with txt_only and docx_only
 and cut files from folder_1 and paste those inside these new folders.
-current folder structure:
 
+current folder structure:
 python_programming
 >os_module
     >folder_1
