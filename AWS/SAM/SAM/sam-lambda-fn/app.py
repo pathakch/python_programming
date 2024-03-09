@@ -7,7 +7,7 @@ def lambda_handler(event, context):
     count = event['count']
     data = []
     for i in range(count):
-        data.append(i*10)
+        data.append(i*50)
     df = pd.DataFrame(data,columns=['Numbers'])
     print("Data")
     print(df)

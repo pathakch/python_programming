@@ -1,5 +1,6 @@
 import boto3
 import json
+
 s3 = boto3.resource('s3')
 bucket_name = 'myfirst-demo-s3bucket'
 file_object = s3.Object(bucket_name,'test_json_file.json')
