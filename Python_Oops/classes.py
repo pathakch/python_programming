@@ -1,12 +1,69 @@
 """
-classes = real world entity or object
-attributes : - properties of the class , in Car class -windows,doors,enginetype etc
-Methods :->> actions of the class.
+classes    :->> Real world entity or object, It has two things 1. Attributes 2. Methods.
+Attributes :->> properties of the class , in Car class -windows,doors,enginetype etc
+Methods    :->> actions of the class.
 """
 """
-# This is the better way of writing class
-'__init__' is a constructor 
-'window' will be passed at run time but in 'self.windows' `windows` is an attribute of class.
+Difference between Methods and Functions : 
+--------------------------------------------
+Method   : Method is any function which is written inside the class, We can not call it function We call it methods
+Function : Function is any normal function
+--------------------------------------------
+Question : What is Constructor
+Answer   : Constructor is a function (block of code) which is executed/called automatically when we initialize or instantiate an object of the class,
+Things to remember about Constructor : 
+1. We write such types of code inside constructor which do not need user permission to be executed like -- connecting to the internet, connecting to the database 
+   Assume an application -- when a user opens that application in mobile/laptop it should directly connect to the internet so that user can work on it so here we write this connection code inside the constructor of the class of that application.
+For example : 
+creating a class to demonstrate it:
+----------------------------
+   class Greeting():
+       def __init__(self):
+          Print("Hi Namaste")
+        
+        def other_fn(self):
+           pass
+----------------------------
+As soon as we instantiate/create an object of 'Greeting' class , its constructor will be executed and print 'Hi Namaste' 
+like 
+greeting_obj = Greeting() ('Hi Namaste' will be printed right below)
+--------------------------------------------------------------------------------
+Question : What is 'self' and the significance of it ??
+Answer   : 'self' is the object of class we are working with currently 
+            Meaning : lets create a class 'Atm'
+            -------------------------------------------
+            class Atm:
+                    def __init__(self, bank, balance)
+                        self.balance = balance
+                        self.bank = bank
+                    def other_fn_1(self):
+                        pass
+                    def other_fn_2():
+                        pass
+            --------------------------------------------
+let's create an object called sbi of 'Atm' class. 
+sbi = Atm()
+This will help to understand below functionality of the class.
+--------------------------------------------------------------
+when we print(id(sbi)) and print(id(self))
+
+print(id(sbi))  = '1234'
+print(id(self)) = '1234'
+these both are on same address it means the current object of a class is 'self'
+
+In above class 'other_fn_2' is created without 'self', so when we create an object of 'Atm' class and try to access 'other_fn_2' we will get an error -> 'other_fn_2' takes 0 arguments but 1 is passed
+why we got this error while we have not passed any argument while calling 'other_fn_2' because 
+----------- Significance of 'self'--------------
+There is a rule in class that nothing can be accessed of a class without any object of the class, not even one function of the class
+can call other function of the same class inside the class.
+So, to access anything of a class 'self' is required.
+One method of a class can call any method of the class with the help of 'self' only 
+OR
+One method of the class can access any attribute of class with the help of 'self' only. 
+-------------------------------------------
+
+"""
+"""
 both can be of different name.
 why 'self' is used ?? 
 ANS:->> using self we can call any attributes of Car class.
