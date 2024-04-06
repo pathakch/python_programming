@@ -177,22 +177,3 @@ current_path_1 = os.getcwd()
 new_folder_path = os.path.join(current_path_1,"folder_1")
 
 print(os.rename(file_name,f"{new_folder_path}/t2222.txt"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

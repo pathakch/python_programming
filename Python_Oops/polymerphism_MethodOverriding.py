@@ -193,18 +193,3 @@ obj_child.age()
 """
 Output :-->I am child and my age is 21 years.
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
