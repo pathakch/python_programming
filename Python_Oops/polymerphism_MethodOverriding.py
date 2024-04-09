@@ -14,6 +14,8 @@ as method overriding.
 3. Method Overriding is a part of the inheritance mechanism
 4. Method Overriding avoids duplication of code
 5. Method Overriding also enhances the code adding some additional properties.
+6. When child class has no constructor then Parent's class constructor is called automatically while creating 
+child class's object, But if child class has its own constructor then parent class constructor is not invoked
 
 ============================================== Prerequisites==========================================
 1. Method overriding cannot be done within a class. So,we need to derive a child class from a parent class. 
@@ -82,10 +84,17 @@ child_class_obj.no_of_sides()
 Output :-->>
 I am child class method 'no_of_sides' I am overriding the parent class method'no_of_sides'
 
-============= Explanation ============
+=============== Explanation ============
 We can see here that parent class method 'no_of_sides' has been overriden in child class 
 means it's been modified inside the child class (in this case unction contains only print statement 
-and that print statement has been changed means modified)
+and that print statement has been changed means modified.
+When we call a function (by child's object) which is present in both Parent and Child class ,then child class function is 
+called (if that function is modified then it's method overriding. which is happening in above example.)
+This concept is based on real world experience - How ??
+Answer : Lets say There a family business  which was run by my Grand father, then run by my father, but now I want to 
+do some modification in that family business and run it , so when I will run that family business, I will run
+my modified version of that business which is overriden(Here me is object of child class and 
+the method 'no_of_sides' is the family business.)
 '''
 # calling parent class method 'two_dimensional()' from child class object.
 child_class_obj.two_dimensional()

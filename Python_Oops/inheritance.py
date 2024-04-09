@@ -1,6 +1,16 @@
  
 #***********************************  *****************************************
-#=================================== Inheritance ==============================
+#=================================== Inheritance (Is-A relationship)==============================
+"""
+What are the things a child class can inherit from its parent class ???...
+Answer :-- >> These are the three things whicha can be inherited from parent class by child class.
+1. Data members.
+2. Member functions or say Methods
+3. Constructors
+---------------------
+NOTE : -->> private members cant be inherited by child class from parent class.
+---------------------
+"""
 #******************************************************************************
 # Creating a class named 'Car' -->> Parent class
 class Car:
@@ -26,9 +36,22 @@ class Audiq7(Car):
     # we need to pass all the attributes(windows,doors,enginetype) of parent class also along with its own 
     # attribute(horsepower)
     def __init__(self,windows,doors,enginetype,horsepower):
-
-        # to access all the attributes of parent class we need to call the constructor of parent class 
-        # inside this class with the help of 'super().__init__()'
+        """
+        To access all the attributes of parent class we need 'super().' keyword. Using this keyword we can call any 
+        data members or methods of Parent class inside the child class, it does not mean that we can call them outside of 
+        child class meaning child_object.super().data_member -- this will not work.
+        Thats why to call the constructor of parent class inside child class 'super().' is required we can see below.
+        NOTE:-->> Here we can see that Parent constructor is being called inside child constructor so what will happen
+        when we create an object of child class by doing this <audi1 = Audiq7(2,2,'audi type engine',200)>.
+        First child class constructor will be invoked then this child class constructor will call parent class
+        constructor since we have done this (super().__init__(windows,doors,enginetype)) and then control will go to 
+        parent class constructor and set these three values windows = 2, doors = 2 and enginetype = audi type engine and then 
+        control will come to child's constructor and set this one value horsepower = 200 -- This is how it works.
+        For Example :  we can access all the data members of parent class and child class by child's class object.
+        Like this 1. audi1.windows or audi1.enginetype or audi1.horsepower
+        Matlab -- aadha initialization child constructor se krwa rhe hai and aadha initialization parent constructor se 
+        karwa rhe hai using super(). keyword and calling parent constructor -- This is smart coding.
+        """
         super().__init__(windows,doors,enginetype)
         
         # initializing child class's attribute(horsepower)
@@ -69,7 +92,7 @@ print("\nAudi car specification is \nwindows:{}\ndoors:{}\nenginetype:{}\nhorsep
 Output :-->>
 Audi car specification is
 windows:2
-doors:2
+doors:2 
 enginetype:audi type engine
 horsepower:200
 """
@@ -112,5 +135,38 @@ Output :-->>
 '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
  '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__',
  'doors', 'drift', 'driving', 'enginetype', 'horsepower', 'windows']
+"""
+#############################################################################################################
+class User:
+    def login(self):
+        print("login")
+
+    def register(self):
+        print("register")
+
+"""
+Student is inheriting from User it means , object of Student class can access everything of User class 
+-- this is the meaning of inheritance on high level.
+"""
+class Student(User):
+    def enroll(self):
+        print("Enrolled")
+
+    def review(self):
+        print("Review")
+
+stu1 = Student()
+
+# Student is inheriting from User it means , object of Student class can access everything of User class 
+stu1.login()
+stu1.review()
+stu1.enroll()
+stu1.register()
+"""
+Output : 
+login
+Review
+Enrolled
+register
 """
 

@@ -4,10 +4,56 @@ Attributes :->> properties of the class , in Car class -windows,doors,enginetype
 Methods    :->> actions of the class.
 """
 """
+------------------------------------------------------------------------------------------
+Standards For Naming convention in Class.
+1. Class name should be in PascalCase or UpperCamelCase or StudlyCase(Example : BookClass)
+2. Variable name or Methods name should be in snake_case.(example : book_name)
+------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Instance variable and Class variable or Static variable : 
+---------------------------------------------------------
+1. Instance variable : variable whose values will be different for each new object created of that class , 
+For Example : In ATM class PIN and BALANCE should be isntance variable (pin and balance will be different for each customer coming to the ATM)
+Instance variable are always defined inside the constructor.
+2. Class Variable/ Static Variable : Variables Whose values will be same for every object of that class
+For example : in BANK class IFSC code is class variable or Static variable, in COllege class degree should be class variable or static variable.
+***********************************************************
+Accessing of Instance variable and Class or Static variable
+***********************************************************
+We can understand these from Atm class
+
+To access instance variables-->> 'self.variable_name'
+To access Static or Class variable--->> 'ClassName.variable_name'
+
+------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+Difference between reference variable and class object : 
+--------------------------------------------------------
+TO understand this let's say Car is a class
+when we write this -->> Audi = Car() (Audi is a reference variable and Car() is an object here.)
+People generally say that Audi is an object of Car class which is wrong.
+-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 Difference between Methods and Functions : 
 --------------------------------------------
-Method   : Method is any function which is written inside the class, We can not call it function We call it methods
-Function : Function is any normal function
+Method   : Method is any function which is written inside the class, We can not call it function We call it methods and its accessed by only it's object 
+not by object of any other class.
+Function : Function is any normal function which is not a part of any class (means not written inside any class), and accessed by any object.
+We can understand it with below example : --
+
+creating a list L
+L= [1,2,3,4]
+print(f"original list is : {L} and Length of Original list : {len(L)}")
+# adding one extra element in list 
+L.append(5)
+print(f"List after appending 5 : {L} and its length is : {len(L)}")
+
+--- In above example we can see their are two functions 1. len(list) and other is list.append(5)
+but, if these two are functions then why we are calling them in different manner -- because here len() is 
+a function and append() is a method of list class(method written inside list class) 
+but len() is a general functional its not a method of list class (len function can be used by string too) . 
+And we know whenever we call method of any class we call it this way -- object_of_class.method_name()
+
 --------------------------------------------
 Question : What is Constructor
 Answer   : Constructor is a function (block of code) which is executed/called automatically 
@@ -86,7 +132,9 @@ we got above error 'other_fn_2' takes 0 positional arguments but 1 is given.' ev
 'other_fn_2'.(sbi was passed by default means self was by default)-- so self or say the object is calling other_fn_2 here.
 Meaning inside class we can call any method or any data/attribute of class with the help of object only and object hi self hai so ultimatelly 
 eveything will be accessed by self only. and thats why object or say sbi or say 'self' was passed by default while calling method other_fn_2.m
-
+Toh jab bhi hum kisi function ko call karte hai toh usko ek by default input dete hai our wo input hota hai us 
+unction ko call karne wala object our us time par wo object hi self hota hai isliye self required har function ko call
+karne k liye.
 """
 """
 """
@@ -110,4 +158,96 @@ class Car:
            we can use it like below
         """     
     def self_driving2(self,engine):
-        print("The car type is {} engine ".format(engine))        
+        print("The car type is {} engine ".format(engine))   
+
+#------------------------
+#----------------========== Pass by Reference==========-------------------
+"""
+Object of a class behaves like normal list,str,dictionary or any other datatype
+We can check this with below example -- where we will pass an object of a class as input parameter
+while calling a function and thi object will behave like normal input parameter 
+like other datatype of python 
+"""
+# Creating a class
+class Customer():
+    def __init__(self,name,gender):
+        self.name = name
+        self.gender = gender
+
+# creating a normal function
+def greet(customer):
+    if customer.gender.upper() == 'MALE':
+        print(f"\nHello {customer.name} sir !")
+    elif customer.gender.upper() == 'FEMALE':
+        print(f"\nHello {customer.name} ma'am !")
+
+#creating an object of Customer class.
+cust = Customer("Aarti","female")
+
+#passing an object of a class as input parameter for a function.
+greet(cust)
+# Output : -->> Hello Aarti ma'am !
+
+
+"""-----------------===================================-------------------------------
+Even we can create an object of a class inside any other 
+function and can return that object by that function
+check below :-->
+"""
+class Customer():
+    def __init__(self,name,gender):
+        self.name = name
+        self.gender = gender
+
+def greet(customer):
+    #printing name of first customer.
+    print(f"\nCustomer name is {customer.name}\n")
+
+    #creating an oject of Customer class inside this function.
+    cust2 = Customer('Chandan','male')
+    return cust2
+
+#creating an object of Customer class.
+cust = Customer("Aarti","female")
+#passing an object of a class as input parameter for a function.
+customer_2 = greet(cust)
+print(f"This is the name of second customer : {customer_2.name}")
+'''
+# Output : 
+Customer name is Aarti
+This is the name of second customer : Chandan
+'''
+'''
+---------------------------
+Class Objects are mutable :
+--------------------------- 
+Class object are mutable, meaning we can change an attributes or data of a class object on the smae address, 
+and chaning anything's value on the same address proves mutability of that thing.
+To check this we can print id of the object before and after changing the data of that object.Id o that object should be same in both cases.
+Check below-->>
+'''
+class Customer():
+    # creating a constructor of class.
+    def __init__(self,name):
+        self.name = name
+
+def greet(customer):
+    print(f"Original Id of the object printing inside class is : {id(customer)}")
+    # Changing the attribute of class -- means changing the name of customer
+    customer.name = 'Chandan'
+    print(f"Id of object after changing the attribute of object inside class is: {id(customer)}")
+
+#creating an object of Customer class.
+cust = Customer("Aarti")
+print(f"Original id of object before changing the attribute:{id(cust)}")
+#calling function passing object as input parameter.
+greet(cust)
+#printing id of object after changing attribute
+print(f"Id of object :{id(cust)}")
+"""
+Output :--> 
+Original id of object before changing the attribute:878442800016
+Original Id of the object printing inside class is : 878442800016
+Id of object after changing the attribute of object inside class is: 878442800016
+Id of object :878442800016
+"""
