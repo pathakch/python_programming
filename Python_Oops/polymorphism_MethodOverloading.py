@@ -182,6 +182,3 @@ concatenation of two strings Hello,World is : HelloWorld
    in either the old way or the new way.
 3. Method overloading in Python improves the code reusability as well   
 """
-
-
-
