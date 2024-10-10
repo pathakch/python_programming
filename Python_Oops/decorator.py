@@ -9,15 +9,11 @@ def outer_fn(c):
         return wrapper
     return decorator_fn
 
-
+# applying decorator on main function
 @outer_fn(10)
 def jod_fn(a,b):
     return a+b
 
-# jod_fn = decorator_fn(jod_fn,5)
-
-print(jod_fn(9,8))
-
-
-# if __name__ == "__main__":
-#     print(jod_fn(3,4))
+#calling main function
+if __name__ == "__main__":
+    print(jod_fn(3,4))
