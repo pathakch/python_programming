@@ -11,6 +11,7 @@ class Animal(ABC):
 
 # concrete class dog inhereting from Animal
 class Dog(Animal):
+    
     def sound(self):
         print("Barking.. Woof... Woof.... ")
 
@@ -21,8 +22,11 @@ class Cat(Animal):
 
 dog = Dog()
 cat = Cat()
- 
+'''
+Below we can see that when we call dog class sound method it works as per it's impementation
+when we call cat class sound method it works as per it's implementation'''
+
 dog.sound()
 cat.sound()
 cat.breathe()
-dog.breathe()       
+dog.breathe() 

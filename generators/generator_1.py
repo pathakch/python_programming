@@ -12,4 +12,3 @@ with open('files/test.txt', 'r') as f:
     while line:
         print(line)
         line = f.readline()
-
